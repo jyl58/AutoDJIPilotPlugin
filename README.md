@@ -1,0 +1,2 @@
+# AutoDJIPilotPlugin
+该项目为AutoDJIPilot的插件库，存放用于AutoDJIPilot程序的插件。
