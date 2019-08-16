@@ -7,11 +7,12 @@
 */
 #pragma once
 #include <iostream>
-#include "PayloadBase.h"
+#include "PayloadPlugin.h"
 
 class PluginExample : public PayloadBase{
 public:
-	PluginExample();
+	PluginExample(const PluginExample&)=delete;
+	PluginExample& operator=(const PluginExample&)=delete;
 	~PluginExample();
 	/*init function use to regist response function */	
 	bool init() override;
@@ -25,11 +26,9 @@ public:
 	static void MyLuahandle_3(UserData my_data);
 	
 private:
+	PluginExample();
+	/*static self*/
+	static PluginExample* _self;
 	/*user data*/
-
 };
 
-/* return a new plugin instance,,need C for undef symbol */
-extern "C" PayloadBase* PayloadInstance(void){
-	return new  PluginExample();
-}

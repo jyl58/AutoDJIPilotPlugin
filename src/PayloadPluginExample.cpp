@@ -8,9 +8,14 @@
 #include <iostream>
 #include "PayloadPluginExample.h"
 
+/*static creat self*/
+PluginExample* PluginExample::_self=new PluginExample();
+
 PluginExample::PluginExample()
 :PayloadBase() // call base class constructor 
 {
+	//regist this derive to base class
+	registPayloadPlugin(this);
 }
 PluginExample::~PluginExample(){
 }
@@ -35,6 +40,7 @@ bool PluginExample::init(){
 	if(!PayloadBase::registLuaCallFunction(&PluginExample::MyLuahandle_3,"MyLuahandle_3")){
 		return false;	
 	}
+	
 	return true;
 }
 void PluginExample::MyRCHandle_1(int rc_number,int16_t value){
