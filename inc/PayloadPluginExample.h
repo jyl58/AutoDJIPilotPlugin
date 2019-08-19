@@ -28,7 +28,7 @@ public:
 private:
 	PluginExample();
 	/*static self*/
-	static PluginExample* _self;
+	static PluginExample _self;
 	/*user data*/
 };
 

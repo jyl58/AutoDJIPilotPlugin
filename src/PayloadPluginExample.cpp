@@ -9,7 +9,7 @@
 #include "PayloadPluginExample.h"
 
 /*static creat self*/
-PluginExample* PluginExample::_self=new PluginExample();
+PluginExample PluginExample::_self;
 
 PluginExample::PluginExample()
 :PayloadBase() // call base class constructor 
@@ -40,7 +40,7 @@ bool PluginExample::init(){
 	if(!PayloadBase::registLuaCallFunction(&PluginExample::MyLuahandle_3,"MyLuahandle_3")){
 		return false;	
 	}
-	
+	std::cout<<"Payload plugin init done."<<std::endl;
 	return true;
 }
 void PluginExample::MyRCHandle_1(int rc_number,int16_t value){
